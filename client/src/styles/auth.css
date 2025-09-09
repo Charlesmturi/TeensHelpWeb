@@ -1,0 +1,58 @@
+.error-message {
+  background: #fee;
+  color: #c33;
+  padding: 1rem;
+  border-radius: 5px;
+  margin-bottom: 1rem;
+  border: 1px solid #fcc;
+}
+
+.demo-login-section {
+  background: #f0f7ff;
+  padding: 1.5rem;
+  border-radius: 8px;
+  margin: 1.5rem 0;
+  text-align: center;
+}
+
+.demo-login-section h3 {
+  color: #1a73e8;
+  margin-bottom: 1rem;
+}
+
+.demo-buttons {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 0.5rem;
+}
+
+.demo-buttons button {
+  padding: 0.5rem;
+  border: 1px solid #1a73e8;
+  background: white;
+  color: #1a73e8;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.demo-buttons button:hover:not(:disabled) {
+  background: #1a73e8;
+  color: white;
+}
+
+.demo-buttons button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.auth-submit-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.form-group input:disabled,
+.form-group select:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
