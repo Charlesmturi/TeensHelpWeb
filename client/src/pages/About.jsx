@@ -5,7 +5,7 @@ const About = () => {
   return (
     <div className="page-container">
       <div className="page-content">
-        <h1>About TeenHelp Web</h1>
+        <h1>About Teens Help Web</h1>
         
         <section className="about-section">
           <h2>Our Story</h2>

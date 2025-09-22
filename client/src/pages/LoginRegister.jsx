@@ -75,36 +75,6 @@ const LoginRegister = () => {
     setError('');
   };
 
-  const handleDemoLogin = async (userType) => {
-    setLoading(true);
-    setError('');
-
-    const demoCredentials = {
-      admin: { email: 'admin@demo.com', password: 'demo123' },
-      teen: { email: 'teen@demo.com', password: 'demo123' },
-      counselor: { email: 'counselor@demo.com', password: 'demo123' },
-      therapist: { email: 'therapist@demo.com', password: 'demo123' },
-      parent: { email: 'parent@demo.com', password: 'demo123' },
-      schoolAdmin: { email: 'school@demo.com', password: 'demo123' }
-    };
-
-    try {
-      const credentials = demoCredentials[userType];
-      const response = await axios.post(`${API_BASE_URL}/auth/login`, credentials);
-      
-      const { token, user } = response.data;
-      localStorage.setItem('token', token);
-      localStorage.setItem('user', JSON.stringify(user));
-      
-      redirectUser(user.userType);
-      
-    } catch (err) {
-      setError('Demo login failed. Please try again.');
-    } finally {
-      setLoading(false);
-    }
-  };
-
   return (
     <div className="page-container">
       <div className="auth-container">
@@ -246,26 +216,6 @@ const LoginRegister = () => {
             {loading ? 'Processing...' : isLogin ? 'Login' : 'Create Account'}
           </button>
         </form>
-
-        {isLogin && (
-          <div className="demo-login-section">
-            <h3>Quick Demo Login</h3>
-            <div className="demo-buttons">
-              <button onClick={() => handleDemoLogin('teen')} disabled={loading}>
-                Teen Demo
-              </button>
-              <button onClick={() => handleDemoLogin('counselor')} disabled={loading}>
-                Counselor Demo
-              </button>
-              <button onClick={() => handleDemoLogin('parent')} disabled={loading}>
-                Parent Demo
-              </button>
-              <button onClick={() => handleDemoLogin('admin')} disabled={loading}>
-                Admin Demo
-              </button>
-            </div>
-          </div>
-        )}
 
         <div className="auth-footer">
           <p>

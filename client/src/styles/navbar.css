@@ -287,3 +287,80 @@ body {
     font-size: 1.2rem;
   }
 }
+
+/* Add these styles to your existing navbar.css */
+
+.navbar-brand {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.logo-toggle {
+  margin-left: 12px;
+  cursor: pointer;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+}
+
+.logo-toggle:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.logo-toggle img {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+}
+
+/* Style for when navigation is at top */
+.nav-top {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1001;
+  transform: translateY(0);
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Adjust content when nav is at top */
+body.nav-top-active {
+  margin-top: 60px;
+}
+
+/* Media query adjustments for mobile */
+@media (max-width: 768px) {
+  .logo-toggle {
+    margin-left: 8px;
+    width: 28px;
+    height: 28px;
+  }
+  
+  .logo-toggle img {
+    width: 20px;
+    height: 20px;
+  }
+  
+  .nav-top {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1001;
+    transform: translateY(0);
+    opacity: 1;
+    visibility: visible;
+  }
+  
+  .nav-top .nav-tabs {
+    max-height: 80vh;
+    overflow-y: auto;
+  }
+}

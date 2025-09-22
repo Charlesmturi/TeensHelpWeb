@@ -1,13 +1,12 @@
 const express = require('express');
 const router = express.Router();
+const { register, login, getMe, logout } = require('../controllers/authController');
+const { protect } = require('../middleware/auth');
 
-// Placeholder auth routes
-router.post('/register', (req, res) => {
-  res.json({ message: 'Registration will be implemented soon' });
-});
-
-router.post('/login', (req, res) => {
-  res.json({ message: 'Login will be implemented soon' });
-});
+// Auth routes
+router.post('/register', register);
+router.post('/login', login);
+router.get('/me', protect, getMe);
+router.post('/logout', protect, logout);
 
 module.exports = router;

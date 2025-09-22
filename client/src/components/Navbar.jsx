@@ -1,14 +1,10 @@
 import React, { useState } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 import '../styles/navbar.css';
 
 const Navbar = () => {
-  const [activeTab, setActiveTab] = useState('Home');
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-
-  const handleTabClick = (tabName) => {
-    setActiveTab(tabName);
-    setIsMobileMenuOpen(false); // Close mobile menu after selection
-  };
+  const location = useLocation();
 
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
@@ -64,14 +60,14 @@ const Navbar = () => {
         <div className="nav-tabs-container">
           <div className="nav-tabs">
             {navItems.map((item) => (
-              <a
+              <Link
                 key={item.name}
-                href={item.path}
-                className={`tab ${activeTab === item.name ? 'active' : ''}`}
-                onClick={() => handleTabClick(item.name)}
+                to={item.path}
+                className={`tab ${location.pathname === item.path ? 'active' : ''}`}
+                onClick={() => setIsMobileMenuOpen(false)}
               >
                 {item.name}
-              </a>
+              </Link>
             ))}
           </div>
         </div>
